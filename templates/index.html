@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura Surfaces | Искусственный камень</title>
+    <link rel="icon" href="{{ url_for('static', path='/stone.ico') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/styles.css') }}">
+</head>
+<body>
+    <div class="main-container">
+      <header>
+        <div class="header-content">
+          <img src="{{ url_for('static', path='/img/stone.ico') }}" alt="Логотип Aura Surfaces" />
+          <span>Aura Surfaces</span>
+        </div>
+      </header>
+
+      <section class="hero-section">
+        <div class="hero-text">
+          <h1>
+            <span>Aura Surfaces</span>
+            Искусственный камень
+          </h1>
+          <p>
+            Создаем изысканные и долговечные столешницы из акрилового камня,
+            идеально вписывающиеся в ваш интерьер. Сочетание премиального
+            качества, безупречного стиля и индивидуального подхода к каждому
+            проекту.
+          </p>
+          <form class="hero-form" id="callbackForm" action="/api/callback" method="post">
+            <input
+              type="tel"
+              name="phone"
+              pattern="^(\+7|7|8)?[\s\-]?\(?\d{3}\)?[\s\-]?\d{3}[\s\-]?\d{2}[\s\-]?\d{2}$"
+              placeholder="Введите номер телефона"
+              required
+            />
+            <button type="submit" class="btn btn-primary">
+              Заказать звонок
+            </button>
+          </form>
+          <p class="hero-contact-text">
+            Или свяжитесь с нами напрямую:
+            <a href="tel:+79991654406">+7 999 165-44-06</a>
+          </p>
+        </div>
+
+        <div class="hero-image-container">
+          <img
+            src="{{ url_for('static', path='/img/project6.jpg') }}"
+            alt="Современная кухня со столешницами из искусственного камня"
+          />
+        </div>
+      </section>
+    </div>
+
+    <section class="content-section features-section">
+      <div class="features-grid">
+        <div class="card">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="card-icon"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M5 13l4 4L19 7"
+            />
+          </svg>
+          <h3 class="card-title">Безупречное Качество</h3>
+          <p class="card-text">
+            Используем только сертифицированные материалы от ведущих мировых
+            производителей.
+          </p>
+        </div>
+        <div class="card">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="card-icon"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 8l4-4 4 4M16 1l-4 4-4-4"
+            />
+          </svg>
+          <h3 class="card-title">Индивидуальный Дизайн</h3>
+          <p class="card-text">
+            Разработаем и изготовим столешницу, идеально подходящую под ваш
+            уникальный проект и размеры.
+          </p>
+        </div>
+        <div class="card">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="card-icon"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V3m0 9v3m0 8a9 9 0 110-18 9 9 0 010 18z"
+            />
+          </svg>
+          <h3 class="card-title">Долговечность и Практичность</h3>
+          <p class="card-text">
+            Акриловый камень устойчив к влаге, пятнам и легко реставрируется.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section gallery-section">
+      <div id="gallery-app">
+        <div class="gallery-container">
+          <button
+            class="gallery-arrow prev"
+            @click="prev"
+            :disabled="images.length <= 3"
+          >
+            &#10094;
+          </button>
+          <div class="gallery-images">
+            <div
+              class="gallery-item"
+              v-for="(image, index) in displayedImages"
+              :key="index"
+              @click="openModal(image)"
+            >
+              <img :src="getImagePath(image.src)" :alt="image.alt" />
+              <div class="image-overlay">
+                <p class="overlay-text">{{"{{ image.description }}"}}</p>
+              </div>
+            </div>
+          </div>
+          <button
+            class="gallery-arrow next"
+            @click="next"
+            :disabled="images.length <= 3"
+          >
+            &#10095;
+          </button>
+        </div>
+
+        <!-- Модальное окно для полноэкранного просмотра -->
+        <div class="modal" :class="{ 'modal-active': modalActive }">
+          <span class="modal-close" @click="closeModal">&times;</span>
+
+          <div class="modal-content">
+            <img
+              :src="getImagePath(selectedImage.src)"
+              :alt="selectedImage.alt"
+              class="modal-image"
+            />
+          </div>
+
+          <p class="modal-caption">{{"{{ selectedImage.description }}"}}</p>
+
+          <div class="modal-nav">
+            <div class="modal-arrow" @click="prevImage">&#10094;</div>
+            <div class="modal-arrow" @click="nextImage">&#10095;</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>+7 (999) 165-44-06 | Московская область, г. Чехов, ПСК "Сергеево"</p>
+      <p>&copy; 2025 Aura Surfaces. Все права защищены.</p>
+    </footer>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+
+    <script>
+      const GalleryApp = {
+        data() {
+          return {
+            // Пример данных. Замените на реальные пути и описания.
+            images: [
+              {
+                src: "project1.jpg",
+                alt: "Пример работы 1",
+                description:
+                  "Г-Образная столешница с интегрированной раковиной",
+              },
+              {
+                src: "project2.jpg",
+                alt: "Пример работы 2",
+                description:
+                  "Кухонная столешница с интегрированной раковиной и проточками",
+              },
+              {
+                src: "project3.jpg",
+                alt: "Пример работы 3",
+                description: "Столешница с двух камерной мойкой и фартуком",
+              },
+              {
+                src: "project4.jpg",
+                alt: "Пример работы 4",
+                description: "Столешница с отдельно стоящим островом",
+              },
+              {
+                src: "project5.jpg",
+                alt: "Пример работы 5",
+                description:
+                  "Мраморная столешница с подклейкой раковины и фартуком из керамогранита",
+              },
+              {
+                src: "project6.jpg",
+                alt: "Пример работы 6",
+                description:
+                  "Угловая кухонная столешница с серыми вкраплениями",
+              },
+              {
+                src: "project7.jpg",
+                alt: "Пример работы 7",
+                description:
+                  "Столешница в ванную комнату с интегрированной раковиной (скрытый слив)",
+              },
+            ],
+            currentIndex: 0, // Индекс первого отображаемого изображения
+            modalActive: false, // Состояние модального окна
+            selectedImage: {
+              src: "",
+              alt: "",
+              description: ""
+            }, // Выбранное изображение для модального окна
+            selectedImageIndex: 0, // Индекс выбранного изображения в массиве всех изображений
+          };
+        },
+        computed: {
+          displayedImages() {
+            // Отображаем 3 изображения, зацикливая список
+            const len = this.images.length;
+            if (len === 0) return [];
+            if (len <= 3) return this.images; // Если меньше или равно 3, показываем все
+
+            const start = this.currentIndex;
+            const end = start + 3;
+
+            if (end <= len) {
+              return this.images.slice(start, end);
+            } else {
+              // Обработка зацикливания
+              const firstPart = this.images.slice(start, len);
+              const secondPart = this.images.slice(0, end - len);
+              return [...firstPart, ...secondPart];
+            }
+          },
+        },
+        methods: {
+          getImagePath(filename) {
+            // Метод для формирования правильных путей к изображениям
+            return `/static/img/${filename}`;
+          },
+          next() {
+            if (this.images.length <= 3) return;
+            this.currentIndex = (this.currentIndex + 1) % this.images.length;
+          },
+          prev() {
+            if (this.images.length <= 3) return;
+            // Обработка зацикливания при движении назад
+            this.currentIndex =
+              (this.currentIndex - 1 + this.images.length) % this.images.length;
+          },
+          // Методы для модального окна
+          openModal(image) {
+            this.selectedImage = image;
+            this.selectedImageIndex = this.images.findIndex(
+              (img) => img.src === image.src
+            );
+            this.modalActive = true;
+
+            // Блокировка прокрутки страницы при открытом модальном окне
+            document.body.style.overflow = "hidden";
+
+            // Добавление обработчика клавиш для навигации
+            window.addEventListener("keydown", this.handleKeyDown);
+          },
+          closeModal() {
+            this.modalActive = false;
+
+            // Разблокировка прокрутки страницы
+            document.body.style.overflow = "";
+
+            // Удаление обработчика клавиш
+            window.removeEventListener("keydown", this.handleKeyDown);
+          },
+          nextImage() {
+            this.selectedImageIndex =
+              (this.selectedImageIndex + 1) % this.images.length;
+            this.selectedImage = this.images[this.selectedImageIndex];
+          },
+          prevImage() {
+            this.selectedImageIndex =
+              (this.selectedImageIndex - 1 + this.images.length) %
+              this.images.length;
+            this.selectedImage = this.images[this.selectedImageIndex];
+          },
+          // Обработчик нажатий клавиш для навигации по модальному окну
+          handleKeyDown(e) {
+            switch (e.key) {
+              case "Escape":
+                this.closeModal();
+                break;
+              case "ArrowRight":
+                this.nextImage();
+                break;
+              case "ArrowLeft":
+                this.prevImage();
+                break;
+            }
+          },
+        },
+        // Удаление обработчика при уничтожении компонента
+        unmounted() {
+          window.removeEventListener("keydown", this.handleKeyDown);
+        },
+      };
+
+      Vue.createApp(GalleryApp).mount("#gallery-app");
+
+      // Обработка формы обратного звонка
+      document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('callbackForm');
+        
+        if (form) {
+          form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const phone = form.querySelector('input[name="phone"]').value;
+            
+            // Отправка AJAX запроса
+            fetch('/api/callback', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                name: "Клиент", // Можно добавить поле имени в форму
+                phone: phone,
+                message: "Запрос звонка с главной страницы"
+              })
+            })
+            .then(response => response.json())
+            .then(data => {
+              if (data.status === 'success') {
+                alert('Спасибо! Мы свяжемся с вами в ближайшее время.');
+                form.reset();
+              } else {
+                alert('Произошла ошибка. Пожалуйста, попробуйте ещё раз или позвоните нам.');
+              }
+            })
+            .catch(error => {
+              console.error('Error:', error);
+              alert('Ошибка соединения. Пожалуйста, попробуйте позже.');
+            });
+          });
+        }
+      });
+    </script>
+</body>
+</html>
