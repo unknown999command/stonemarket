@@ -46,6 +46,14 @@ async def callback(payload: CallbackRequest):
         f"Телефон: {payload.phone}\n"
         f"Комментарий: {payload.message}"
     )
+
+    # Формируем ссылку для WhatsApp
+    whatsapp_link = f"https://wa.me/{payload.phone}?text={payload.message}"
+
+    # Формируем ссылку для Telegram
+    telegram_link = f"tg://resolve?domain={payload.phone}"
+
+    # URL для Telegram
     url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
     data = {
         "chat_id": CHAT_ID,
@@ -54,6 +62,7 @@ async def callback(payload: CallbackRequest):
     }
 
     try:
+        # Отправка в Telegram
         resp = requests.post(url, data=data, timeout=5)
         resp.raise_for_status()
     except requests.RequestException as e:
@@ -61,7 +70,14 @@ async def callback(payload: CallbackRequest):
         print(f"Ошибка при отправке в Telegram: {e}")
         return {"status": "error", "message": "Не удалось отправить уведомление"}
 
-    return {"status": "success", "message": "Запрос получен"}
+    # Возвращаем успешный ответ с добавленными ссылками
+    return {
+        "status": "success",
+        "message": "Запрос получен",
+        "whatsapp_link": whatsapp_link,
+        "telegram_link": telegram_link
+    }
+
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
