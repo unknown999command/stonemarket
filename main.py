@@ -44,8 +44,12 @@ async def callback(payload: CallbackRequest):
         f"📞 Новый запрос на обратный звонок:\n"
         f"Имя: {payload.name}\n"
         f"Телефон: {payload.phone}\n"
-        f"Комментарий: {payload.message}"
+        f"Комментарий: {payload.message}\n\n"
+        f"🔗 Ссылки на диалог:\n"
+        f"Telegram: https://t.me/+{payload.phone}\n"  # Ссылка на Telegram
+        f"WhatsApp: https://wa.me/{payload.phone}"  # Ссылка на WhatsApp
     )
+<<<<<<< Updated upstream
 
     # Формируем ссылку для WhatsApp
     whatsapp_link = f"https://wa.me/{payload.phone}?text={payload.message}"
@@ -54,6 +58,9 @@ async def callback(payload: CallbackRequest):
     telegram_link = f"tg://resolve?domain={payload.phone}"
 
     # URL для Telegram
+=======
+    
+>>>>>>> Stashed changes
     url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
     data = {
         "chat_id": CHAT_ID,
