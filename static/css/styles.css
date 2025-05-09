@@ -458,7 +458,285 @@ h3 {
     }
 }
 
-/* Responsive styles */
+/* Gallery styles */
+.gallery {
+    padding: 80px 0;
+    background-color: #1a1a1a;
+}
+
+.gallery__container {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+.gallery__wrapper {
+    overflow: hidden;
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: var(--shadow-md);
+}
+
+.gallery__slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.gallery__slide {
+    min-width: 100%;
+    position: relative;
+    overflow: hidden;
+    background: #1a1a1a;
+    transform: scale(0.98);
+    transition: transform 0.3s ease;
+}
+
+.gallery__slide.active {
+    transform: scale(1);
+}
+
+.gallery__slide img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    transition: all 0.3s ease;
+}
+
+/* Gallery caption styles */
+.gallery__caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem 1.5rem;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8) 30%);
+    color: white;
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .gallery__caption {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+
+    .gallery__slide.caption-visible .gallery__caption {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.gallery__button {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 20px;
+    width: 56px;
+    height: 56px;
+    cursor: pointer;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gallery__button:hover {
+    background: rgba(0, 0, 0, 0.8);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.gallery__button--prev {
+    left: -80px;
+}
+
+.gallery__button--next {
+    right: -80px;
+}
+
+.gallery__dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.gallery__dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #444;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.gallery__dot.active {
+    background: var(--color-primary);
+}
+
+/* Gallery tap hint styles */
+.gallery__tap-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.gallery__tap-hint .tap-icon {
+    display: block;
+    margin: 0 auto 8px;
+    animation: pulse 2s infinite;
+}
+
+.gallery__tap-hint span {
+    font-size: 14px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    white-space: nowrap;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Показываем подсказку только на мобильных */
+@media (max-width: 768px) {
+    .gallery__slide:not(.caption-visible) .gallery__tap-hint {
+        opacity: 1;
+    }
+
+    /* Добавляем легкое затемнение для лучшей читаемости */
+    .gallery__slide:not(.caption-visible)::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.3);
+        pointer-events: none;
+    }
+
+    /* Скрываем подсказку при активном описании */
+    .gallery__slide.caption-visible .gallery__tap-hint {
+        opacity: 0;
+    }
+}
+
+/* Responsive gallery styles */
+@media (max-width: 1200px) {
+    .gallery__button--prev {
+        left: -60px;
+    }
+
+    .gallery__button--next {
+        right: -60px;
+    }
+}
+
+@media (max-width: 768px) {
+    .gallery {
+        padding: 40px 0;
+    }
+    
+    .gallery__container {
+        padding: 0;
+    }
+
+    .gallery__wrapper {
+        margin: 0 15px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+    }
+
+    .gallery__slide {
+        transform: scale(1);
+        border-radius: 12px;
+        background: #242424;
+    }
+
+    .gallery__slide img {
+        height: 450px;
+        border-radius: 12px;
+    }
+
+    /* Прячем описание по умолчанию на мобильных */
+    .gallery__caption {
+        padding: 1.5rem;
+        background: linear-gradient(
+            to bottom,
+            transparent,
+            rgba(0, 0, 0, 0.7) 20%,
+            rgba(0, 0, 0, 0.9)
+        );
+        transform: translateY(100%);
+        opacity: 0;
+        transition: all 0.3s ease;
+    }
+
+    /* Показываем описание только при активном состоянии */
+    .gallery__slide.caption-visible .gallery__caption {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    .gallery__caption h3 {
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        color: #fff;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    }
+
+    .gallery__caption p {
+        font-size: 0.95rem;
+        line-height: 1.5;
+        color: rgba(255, 255, 255, 0.9);
+        margin: 0;
+    }
+
+    .gallery__dots {
+        margin-top: 1.5rem;
+    }
+
+    .gallery__dot {
+        width: 8px;
+        height: 8px;
+        background: rgba(255, 255, 255, 0.3);
+        transition: all 0.3s ease;
+    }
+
+    .gallery__dot.active {
+        width: 24px;
+        border-radius: 4px;
+        background: var(--color-primary);
+    }
+}
+
 @media (max-width: 768px) {
     .nav {
         display: none;
@@ -512,6 +790,28 @@ h3 {
         width: 10px;
         height: 10px;
         margin: -2px auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery__wrapper {
+        margin: 0 10px;
+    }
+
+    .gallery__slide img {
+        height: 350px;
+    }
+
+    .gallery__caption {
+        padding: 1rem;
+    }
+
+    .gallery__caption h3 {
+        font-size: 1.1rem;
+    }
+
+    .gallery__caption p {
+        font-size: 0.9rem;
     }
 }
 

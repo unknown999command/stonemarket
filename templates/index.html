@@ -103,6 +103,57 @@ index.html -->
         </div>
     </section>
 
+    <!-- Gallery section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <h2>Наши последние проекты</h2>
+            <div class="gallery__container">
+                <button class="gallery__button gallery__button--prev" aria-label="Предыдущий слайд">❮</button>
+                <div class="gallery__wrapper">
+                    <div class="gallery__slides">
+                        <div class="gallery__slide">
+                            <img src="{{ url_for('static', path='/img/project1.jpg') }}" alt="Проект 1">
+                            <div class="gallery__tap-hint">
+                                <svg class="tap-icon" viewBox="0 0 24 24" width="24" height="24">
+                                    <path fill="currentColor" d="M9 11.24V7.5C9 6.12 10.12 5 11.5 5S14 6.12 14 7.5v3.74c1.21-.81 2-2.18 2-3.74C16 5.01 13.99 3 11.5 3S7 5.01 7 7.5c0 1.56.79 2.93 2 3.74zm9.84 4.63l-4.54-2.26c-.17-.07-.35-.11-.54-.11H13v-6c0-.83-.67-1.5-1.5-1.5S10 6.67 10 7.5v10.74l-3.43-.72c-.08-.01-.15-.03-.23-.03-.31 0-.59.13-.79.33l-.79.8 4.94 4.94c.27.27.65.44 1.06.44h6.79c.75 0 1.33-.55 1.44-1.28l.75-5.27c.01-.07.02-.14.02-.2 0-.62-.38-1.16-.92-1.38z"/>
+                                </svg>
+                                <span>Нажмите для подробностей</span>
+                            </div>
+                            <div class="gallery__caption">
+                                <h3>Кухонная столешница из камня Grandex</h3>
+                                <p>Современный дизайн с интегрированной мойкой и бесшовным соединением</p>
+                            </div>
+                        </div>
+                        <div class="gallery__slide">
+                            <img src="{{ url_for('static', path='/img/project2.jpg') }}" alt="Проект 2">
+                            <div class="gallery__caption">
+                                <h3>Подоконник из искусственного камня</h3>
+                                <p>Элегантное решение с скрытым примыканием к стене</p>
+                            </div>
+                        </div>
+                        <div class="gallery__slide">
+                            <img src="{{ url_for('static', path='/img/project3.jpg') }}" alt="Проект 3">
+                        </div>
+                        <div class="gallery__slide">
+                            <img src="{{ url_for('static', path='/img/project4.jpg') }}" alt="Проект 4">
+                        </div>
+                        <div class="gallery__slide">
+                            <img src="{{ url_for('static', path='/img/project5.jpg') }}" alt="Проект 5">
+                        </div>
+                        <div class="gallery__slide">
+                            <img src="{{ url_for('static', path='/img/project6.jpg') }}" alt="Проект 5">
+                        </div>
+                        <div class="gallery__slide">
+                            <img src="{{ url_for('static', path='/img/project7.jpg') }}" alt="Проект 5">
+                        </div>
+                    </div>
+                </div>
+                <button class="gallery__button gallery__button--next" aria-label="Следующий слайд">❯</button>
+            </div>
+            <div class="gallery__dots"></div>
+        </div>
+    </section>
+
     <!-- FAQ section -->
     <section id="faq" class="faq">
         <div class="container">
