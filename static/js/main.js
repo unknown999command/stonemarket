@@ -189,10 +189,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const swipeSpeed = Math.abs(currentTranslate - prevTranslate);
         
         if (Math.abs(diff) > swipeThreshold || swipeSpeed > 3) {
-            if (diff > 0 && currentSlide > 0) {
-                currentSlide--;
-            } else if (diff < 0 && currentSlide < slideItems.length - 1) {
-                currentSlide++;
+            if (diff > 0) {
+                // Свайп вправо
+                currentSlide = currentSlide > 0 ? currentSlide - 1 : slideItems.length - 1;
+            } else {
+                // Свайп влево
+                currentSlide = currentSlide < slideItems.length - 1 ? currentSlide + 1 : 0;
             }
         }
         
