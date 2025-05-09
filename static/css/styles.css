@@ -735,6 +735,10 @@ h3 {
         border-radius: 4px;
         background: var(--color-primary);
     }
+
+    .gallery__button {
+        display: none;
+    }
 }
 
 @media (max-width: 768px) {
