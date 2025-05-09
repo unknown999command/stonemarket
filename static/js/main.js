@@ -126,6 +126,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Добавляем отслеживание окончания анимации
+    slides.addEventListener('transitionend', function() {
+        slideItems.forEach((slide, index) => {
+            if (index !== currentSlide) {
+                slide.classList.remove('caption-visible');
+            }
+        });
+    });
+
     prevButton.addEventListener('click', () => {
         currentSlide = (currentSlide - 1 + slideItems.length) % slideItems.length;
         updateSlidePosition();
@@ -221,10 +230,5 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!e.target.closest('.gallery__slide')) {
             slideItems.forEach(slide => slide.classList.remove('caption-visible'));
         }
-    });
-
-    // Закрываем описание при начале свайпа
-    slides.addEventListener('touchstart', function() {
-        slideItems.forEach(slide => slide.classList.remove('caption-visible'));
     });
 });
