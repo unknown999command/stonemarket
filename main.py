@@ -27,11 +27,22 @@ CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
 if not BOT_TOKEN or not CHAT_ID:
     raise RuntimeError("Пожалуйста, добавьте TELEGRAM_BOT_TOKEN и TELEGRAM_CHAT_ID в .env")
 
-# Pydantic-модель для JSON-пayload
+# Pydantic-модель для JSON-payload
 class CallbackRequest(BaseModel):
     name: str = "Клиент"
     phone: str
     message: str = "Запрос звонка"
+
+def format_phone(phone: str) -> str:
+    # Убираем все не цифры из номера
+    cleaned = ''.join(filter(str.isdigit, phone))
+    # Если номер начинается с 8, заменяем на 7
+    if cleaned.startswith('8') and len(cleaned) == 11:
+        cleaned = '7' + cleaned[1:]
+    # Добавляем + в начало, если его нет
+    if not cleaned.startswith('+'):
+        cleaned = '+' + cleaned
+    return cleaned
 
 @app.get("/")
 async def home(request: Request):
@@ -39,15 +50,18 @@ async def home(request: Request):
 
 @app.post("/api/callback")
 async def callback(payload: CallbackRequest):
+    # Форматируем телефон
+    formatted_phone = format_phone(payload.phone)
+    
     # Формируем текст сообщения для Telegram
     text = (
         f"📞 Новый запрос на обратный звонок:\n"
         f"Имя: {payload.name}\n"
-        f"Телефон: {payload.phone}\n"
+        f"Телефон: {formatted_phone}\n"
         f"Комментарий: {payload.message}\n\n"
         f"🔗 Ссылки на диалог:\n"
-        f"Telegram: https://t.me/+{payload.phone}\n"  # Ссылка на Telegram
-        f"WhatsApp: https://wa.me/{payload.phone}"  # Ссылка на WhatsApp
+        f"Telegram: https://t.me/{formatted_phone.lstrip('+')}\n"
+        f"WhatsApp: https://wa.me/{formatted_phone.lstrip('+')}"
     )
     
     url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
