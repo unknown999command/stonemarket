@@ -1,309 +1,455 @@
 <!DOCTYPE html>
 <html lang="ru">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Aura Surfaces | Искусственный камень</title>
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
-        (function (m, e, t, r, i, k, a) {
-            m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
-            m[i].l = 1 * new Date();
-            for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
-            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
-        })
-            (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+      (function (m, e, t, r, i, k, a) {
+        m[i] =
+          m[i] ||
+          function () {
+            (m[i].a = m[i].a || []).push(arguments);
+          };
+        m[i].l = 1 * new Date();
+        for (var j = 0; j < document.scripts.length; j++) {
+          if (document.scripts[j].src === r) {
+            return;
+          }
+        }
+        (k = e.createElement(t)),
+          (a = e.getElementsByTagName(t)[0]),
+          (k.async = 1),
+          (k.src = r),
+          a.parentNode.insertBefore(k, a);
+      })(
+        window,
+        document,
+        "script",
+        "https://mc.yandex.ru/metrika/tag.js",
+        "ym"
+      );
 
-        ym(101739367, "init", {
-            clickmap: true,
-            trackLinks: true,
-            accurateTrackBounce: true,
-            webvisor: true
-        });
+      ym(101749499, "init", {
+        clickmap: true,
+        trackLinks: true,
+        accurateTrackBounce: true,
+        webvisor: true,
+      });
     </script>
-    <noscript>
-        <div><img src="https://mc.yandex.ru/watch/101739367" style="position:absolute; left:-9999px;" alt="" /></div>
-    </noscript>
+    <noscript
+      ><div>
+        <img
+          src="https://mc.yandex.ru/watch/101749499"
+          style="position: absolute; left: -9999px"
+          alt=""
+        /></div
+    ></noscript>
     <!-- /Yandex.Metrika counter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="{{ url_for('static', path='/img/favicon.ico') }}" type="image/x-icon">
-    <link rel="stylesheet" href="{{ url_for('static', path='/css/styles.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      href="{{ url_for('static', path='/img/favicon.ico') }}"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', path='/css/styles.css') }}"
+    />
     <script src="{{ url_for('static', path='/js/main.js') }}" defer></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- Header -->
     <header class="header">
-        <div class="container">
-            <div class="header__content">
-                <a href="/" class="logo">Aura Surfaces</a>
-                <nav class="nav">
-                    <ul class="nav__list">
-                        <li><a href="#about">О нас</a></li>
-                        <li><a href="#products">Наш камень</a></li>
-                        <li><a href="#process">Процесс</a></li>
-                        <li><a href="#gallery">Проекты</a></li>
-                        <li><a href="#faq">FAQ</a></li>
-                    </ul>
-                </nav>
-                <a href="#contact" class="btn btn-primary header-cta">Узнать стоимость</a>
-            </div>
+      <div class="container">
+        <div class="header__content">
+          <a href="/" class="logo">Aura Surfaces</a>
+          <nav class="nav">
+            <ul class="nav__list">
+              <li><a href="#about">О нас</a></li>
+              <li><a href="#products">Наш камень</a></li>
+              <li><a href="#process">Процесс</a></li>
+              <li><a href="#gallery">Проекты</a></li>
+              <li><a href="#faq">FAQ</a></li>
+            </ul>
+          </nav>
+          <a href="#contact" class="btn btn-primary header-cta"
+            >Узнать стоимость</a
+          >
         </div>
+      </div>
     </header>
 
     <!-- Hero section -->
     <section class="hero">
-        <div class="hero__overlay"></div>
-        <div class="container">
-            <div class="hero__content">
-                <h1>
-                    Изготовление вашей<br>
-                    идеальной столешницы<br>
-                    на заказ
-                </h1>
-                <a href="#contact" class="btn btn-primary btn-hero">Узнать стоимость</a>
-                <div class="scroll-arrow">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
+      <div class="hero__overlay"></div>
+      <div class="container">
+        <div class="hero__content">
+          <h1>
+            Изготовление вашей<br />
+            идеальной столешницы<br />
+            на заказ
+          </h1>
+          <a href="#contact" class="btn btn-primary btn-hero"
+            >Узнать стоимость</a
+          >
+          <div class="scroll-arrow">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- About section -->
     <section id="about" class="about">
-        <div class="container">
-            <h2>О нас</h2>
-            <p>Наша компания успешно работает <strong>с 2021 года</strong>, предоставляя услуги высочайшего качества в
-                области изготовления изделий из искусственного камня. Мы гордимся наличием <strong>собственного
-                    производства</strong>, что позволяет нам контролировать каждый этап работы и гарантировать
-                безупречный результат.</p>
-            <p>Благодаря надежным партнерам, таким как ведущие производители камня, мы предлагаем <strong>широкий выбор
-                    материалов</strong> и выгодные условия, включая привлекательные скидки для наших клиентов. За время
-                нашей работы мы реализовали <strong>более 1000 проектов</strong>, сотрудничая как с частными
-                заказчиками, так и с крупными компаниями, такими как <strong>Wildberries, Lemana Pro</strong> и другие.
-            </p>
-            <p>Наш главный приоритет — это <strong>качество и удовлетворенность клиента</strong>. Мы стремимся превзойти
-                ожидания каждого заказчика, чтобы результат нашей работы вдохновлял и вызывал желание рекомендовать нас
-                друзьям и коллегам.</p>
-        </div>
+      <div class="container">
+        <h2>О нас</h2>
+        <p>
+          Наша компания успешно работает <strong>с 2021 года</strong>,
+          предоставляя услуги высочайшего качества в области изготовления
+          изделий из искусственного камня. Мы гордимся наличием
+          <strong>собственного производства</strong>, что позволяет нам
+          контролировать каждый этап работы и гарантировать безупречный
+          результат.
+        </p>
+        <p>
+          Благодаря надежным партнерам, таким как ведущие производители камня,
+          мы предлагаем <strong>широкий выбор материалов</strong> и выгодные
+          условия, включая привлекательные скидки для наших клиентов. За время
+          нашей работы мы реализовали <strong>более 1000 проектов</strong>,
+          сотрудничая как с частными заказчиками, так и с крупными компаниями,
+          такими как <strong>Wildberries, Lemana Pro</strong> и другие.
+        </p>
+        <p>
+          Наш главный приоритет — это
+          <strong>качество и удовлетворенность клиента</strong>. Мы стремимся
+          превзойти ожидания каждого заказчика, чтобы результат нашей работы
+          вдохновлял и вызывал желание рекомендовать нас друзьям и коллегам.
+        </p>
+      </div>
     </section>
 
     <!-- Products section -->
     <section id="products" class="products">
-        <div class="container">
-            <h2>Наш камень</h2>
-            <div class="products__grid">
-                <div class="product-card product-card--grandex">
-                    <h3>Grandex</h3>
-                    <p>Премиальный акриловый камень из Южной Кореи. Более 80 декоров, включая имитацию натурального
-                        камня. Антибактериальная защита и высокая термостойкость.</p>
-                </div>
-                <div class="product-card product-card--staron">
-                    <h3>Staron</h3>
-                    <p>Акриловый камень от Samsung. Непористая структура, 100% безопасность для здоровья, устойчивость к
-                        загрязнениям. Широкая цветовая палитра из более 90 оттенков.</p>
-                </div>
-            </div>
+      <div class="container">
+        <h2>Наш камень</h2>
+        <div class="products__grid">
+          <div class="product-card product-card--grandex">
+            <h3>Grandex</h3>
+            <p>
+              Премиальный акриловый камень из Южной Кореи. Более 80 декоров,
+              включая имитацию натурального камня. Антибактериальная защита и
+              высокая термостойкость.
+            </p>
+          </div>
+          <div class="product-card product-card--staron">
+            <h3>Staron</h3>
+            <p>
+              Акриловый камень от Samsung. Непористая структура, 100%
+              безопасность для здоровья, устойчивость к загрязнениям. Широкая
+              цветовая палитра из более 90 оттенков.
+            </p>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Process section -->
     <section id="process" class="process">
-        <div class="container">
-            <h2>3 шага к вашему решению</h2>
-            <div class="process__steps">
-                <div class="step">
-                    <div class="step__number">1</div>
-                    <h3>Консультация</h3>
-                    <p>Мы внимательно выслушаем ваши идеи, предложим оптимальные решения и согласуем стоимость проекта.
-                    </p>
-                </div>
-                <div class="step">
-                    <div class="step__number">2</div>
-                    <h3>Замер</h3>
-                    <p>Мы приедем на объект, чтобы выполнить точные замеры и учесть все особенности помещения. Также вы
-                        сможете выбрать подходящий камень из наших образцов, чтобы убедиться в его качестве и цвете.</p>
-                </div>
-                <div class="step">
-                    <div class="step__number">3</div>
-                    <h3>Производство</h3>
-                    <p>Мы изготавливаем изделие с учетом всех ваших пожеланий, доставляем его на объект и выполняем
-                        профессиональную установку, чтобы вы могли наслаждаться результатом без лишних хлопот.</p>
-                </div>
-            </div>
+      <div class="container">
+        <h2>3 шага к вашему решению</h2>
+        <div class="process__steps">
+          <div class="step">
+            <div class="step__number">1</div>
+            <h3>Консультация</h3>
+            <p>
+              Мы внимательно выслушаем ваши идеи, предложим оптимальные решения
+              и согласуем стоимость проекта.
+            </p>
+          </div>
+          <div class="step">
+            <div class="step__number">2</div>
+            <h3>Замер</h3>
+            <p>
+              Мы приедем на объект, чтобы выполнить точные замеры и учесть все
+              особенности помещения. Также вы сможете выбрать подходящий камень
+              из наших образцов, чтобы убедиться в его качестве и цвете.
+            </p>
+          </div>
+          <div class="step">
+            <div class="step__number">3</div>
+            <h3>Производство</h3>
+            <p>
+              Мы изготавливаем изделие с учетом всех ваших пожеланий, доставляем
+              его на объект и выполняем профессиональную установку, чтобы вы
+              могли наслаждаться результатом без лишних хлопот.
+            </p>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Gallery section -->
     <section id="gallery" class="gallery">
-        <div class="container">
-            <h2>Наши последние проекты</h2>
-            <div class="gallery__container">
-                <button class="gallery__button gallery__button--prev" aria-label="Предыдущий слайд">❮</button>
-                <div class="gallery__wrapper">
-                    <div class="gallery__slides">
-                        <div class="gallery__slide">
-                            <img src="{{ url_for('static', path='/img/project1.jpg') }}" alt="Проект 1">
-                            <div class="gallery__tap-hint">
-                                <svg class="tap-icon" viewBox="0 0 24 24" width="24" height="24">
-                                    <path fill="currentColor"
-                                        d="M9 11.24V7.5C9 6.12 10.12 5 11.5 5S14 6.12 14 7.5v3.74c1.21-.81 2-2.18 2-3.74C16 5.01 13.99 3 11.5 3S7 5.01 7 7.5c0 1.56.79 2.93 2 3.74zm9.84 4.63l-4.54-2.26c-.17-.07-.35-.11-.54-.11H13v-6c0-.83-.67-1.5-1.5-1.5S10 6.67 10 7.5v10.74l-3.43-.72c-.08-.01-.15-.03-.23-.03-.31 0-.59.13-.79.33l-.79.8 4.94 4.94c.27.27.65.44 1.06.44h6.79c.75 0 1.33-.55 1.44-1.28l.75-5.27c.01-.07.02-.14.02-.2 0-.62-.38-1.16-.92-1.38z" />
-                                </svg>
-                                <span>Нажмите для подробностей</span>
-                            </div>
-                            <div class="gallery__caption">
-                                <h3>Кухонная столешница из камня Grandex</h3>
-                                <p>Элегантная светлая столешница с каменным плинтусом, интегрированной раковиной и
-                                    удобными сливными проточками для сушки посуды.</p>
-                            </div>
-                        </div>
-                        <div class="gallery__slide">
-                            <img src="{{ url_for('static', path='/img/project2.jpg') }}" alt="Проект 2">
-                            <div class="gallery__caption">
-                                <h3>Идеальная столешница для вашей кухни</h3>
-                                <p>Светлая столешница с подклейкой раковиной, стильной стеновой панелью из одного
-                                    материала и удобными отверстиями под смеситель и дозатор.</p>
-                            </div>
-                        </div>
-                        <div class="gallery__slide">
-                            <img src="{{ url_for('static', path='/img/project3.jpg') }}" alt="Проект 3">
-                            <div class="gallery__caption">
-                                <h3>Бежевая столешница с двойной мойкой</h3>
-                                <p>Элегантная бежевая столешница с интегрированной двухкамерной мойкой, стеновой панелью
-                                    с аккуратными вырезами под розетки и бесшовным прилеганием к стене.</p>
-                            </div>
-                        </div>
-                        <div class="gallery__slide">
-                            <img src="{{ url_for('static', path='/img/project4.jpg') }}" alt="Проект 4">
-                            <div class="gallery__caption">
-                                <h3>Столешница с островом</h3>
-                                <p>Шикарная свелая столешница под окно с плинтусами к стенам и большим островом с
-                                    интегрированной светодиодной подсветкой.</p>
-                            </div>
-                        </div>
-                        <div class="gallery__slide">
-                            <img src="{{ url_for('static', path='/img/project5.jpg') }}" alt="Проект 5">
-                            <div class="gallery__caption">
-                                <h3>Кухонная столешница</h3>
-                                <p>Этот вариант идеально показывает подбор материала столешницы под стеновую панель из
-                                    керамогранита. В сочетании и черными элементами делает эту кухню уникальной.</p>
-                            </div>
-                        </div>
-                        <div class="gallery__slide">
-                            <img src="{{ url_for('static', path='/img/project6.jpg') }}" alt="Проект 5">
-                            <div class="gallery__caption">
-                                <h3>Столешница на современную кухню</h3>
-                                <p>Очень хороший проект со столешницей под минималистичный дизайн кухни. Такой цвет
-                                    материала позволяет скрывать своей расцветкой любые царапины и сколы, которые
-                                    появляются в процессе эксплуатации.</p>
-                            </div>
-                        </div>
-                        <div class="gallery__slide">
-                            <img src="{{ url_for('static', path='/img/project7.jpg') }}" alt="Проект 5">
-                            <div class="gallery__caption">
-                                <h3>Небольшая столешница для ванной</h3>
-                                <p>Компактная столешница с интегрированной раковиной, выполненная с использованием
-                                    технологии скрытого слива, которая скрывает видимые элементы и создает эстетичный
-                                    внешний вид.</p>
-                            </div>
-                        </div>
-                    </div>
+      <div class="container">
+        <h2>Наши последние проекты</h2>
+        <div class="gallery__container">
+          <button
+            class="gallery__button gallery__button--prev"
+            aria-label="Предыдущий слайд"
+          >
+            ❮
+          </button>
+          <div class="gallery__wrapper">
+            <div class="gallery__slides">
+              <div class="gallery__slide">
+                <img
+                  src="{{ url_for('static', path='/img/project1.jpg') }}"
+                  alt="Проект 1"
+                />
+                <div class="gallery__tap-hint">
+                  <svg
+                    class="tap-icon"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    height="24"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M9 11.24V7.5C9 6.12 10.12 5 11.5 5S14 6.12 14 7.5v3.74c1.21-.81 2-2.18 2-3.74C16 5.01 13.99 3 11.5 3S7 5.01 7 7.5c0 1.56.79 2.93 2 3.74zm9.84 4.63l-4.54-2.26c-.17-.07-.35-.11-.54-.11H13v-6c0-.83-.67-1.5-1.5-1.5S10 6.67 10 7.5v10.74l-3.43-.72c-.08-.01-.15-.03-.23-.03-.31 0-.59.13-.79.33l-.79.8 4.94 4.94c.27.27.65.44 1.06.44h6.79c.75 0 1.33-.55 1.44-1.28l.75-5.27c.01-.07.02-.14.02-.2 0-.62-.38-1.16-.92-1.38z"
+                    />
+                  </svg>
+                  <span>Нажмите для подробностей</span>
                 </div>
-                <button class="gallery__button gallery__button--next" aria-label="Следующий слайд">❯</button>
+                <div class="gallery__caption">
+                  <h3>Кухонная столешница из камня Grandex</h3>
+                  <p>
+                    Элегантная светлая столешница с каменным плинтусом,
+                    интегрированной раковиной и удобными сливными проточками для
+                    сушки посуды.
+                  </p>
+                </div>
+              </div>
+              <div class="gallery__slide">
+                <img
+                  src="{{ url_for('static', path='/img/project2.jpg') }}"
+                  alt="Проект 2"
+                />
+                <div class="gallery__caption">
+                  <h3>Идеальная столешница для вашей кухни</h3>
+                  <p>
+                    Светлая столешница с подклейкой раковиной, стильной стеновой
+                    панелью из одного материала и удобными отверстиями под
+                    смеситель и дозатор.
+                  </p>
+                </div>
+              </div>
+              <div class="gallery__slide">
+                <img
+                  src="{{ url_for('static', path='/img/project3.jpg') }}"
+                  alt="Проект 3"
+                />
+                <div class="gallery__caption">
+                  <h3>Бежевая столешница с двойной мойкой</h3>
+                  <p>
+                    Элегантная бежевая столешница с интегрированной двухкамерной
+                    мойкой, стеновой панелью с аккуратными вырезами под розетки
+                    и бесшовным прилеганием к стене.
+                  </p>
+                </div>
+              </div>
+              <div class="gallery__slide">
+                <img
+                  src="{{ url_for('static', path='/img/project4.jpg') }}"
+                  alt="Проект 4"
+                />
+                <div class="gallery__caption">
+                  <h3>Столешница с островом</h3>
+                  <p>
+                    Шикарная свелая столешница под окно с плинтусами к стенам и
+                    большим островом с интегрированной светодиодной подсветкой.
+                  </p>
+                </div>
+              </div>
+              <div class="gallery__slide">
+                <img
+                  src="{{ url_for('static', path='/img/project5.jpg') }}"
+                  alt="Проект 5"
+                />
+                <div class="gallery__caption">
+                  <h3>Кухонная столешница</h3>
+                  <p>
+                    Этот вариант идеально показывает подбор материала столешницы
+                    под стеновую панель из керамогранита. В сочетании и черными
+                    элементами делает эту кухню уникальной.
+                  </p>
+                </div>
+              </div>
+              <div class="gallery__slide">
+                <img
+                  src="{{ url_for('static', path='/img/project6.jpg') }}"
+                  alt="Проект 5"
+                />
+                <div class="gallery__caption">
+                  <h3>Столешница на современную кухню</h3>
+                  <p>
+                    Очень хороший проект со столешницей под минималистичный
+                    дизайн кухни. Такой цвет материала позволяет скрывать своей
+                    расцветкой любые царапины и сколы, которые появляются в
+                    процессе эксплуатации.
+                  </p>
+                </div>
+              </div>
+              <div class="gallery__slide">
+                <img
+                  src="{{ url_for('static', path='/img/project7.jpg') }}"
+                  alt="Проект 5"
+                />
+                <div class="gallery__caption">
+                  <h3>Небольшая столешница для ванной</h3>
+                  <p>
+                    Компактная столешница с интегрированной раковиной,
+                    выполненная с использованием технологии скрытого слива,
+                    которая скрывает видимые элементы и создает эстетичный
+                    внешний вид.
+                  </p>
+                </div>
+              </div>
             </div>
-            <div class="gallery__dots"></div>
+          </div>
+          <button
+            class="gallery__button gallery__button--next"
+            aria-label="Следующий слайд"
+          >
+            ❯
+          </button>
         </div>
+        <div class="gallery__dots"></div>
+      </div>
     </section>
 
     <!-- FAQ section -->
     <section id="faq" class="faq">
-        <div class="container">
-            <h2>Часто задаваемые вопросы</h2>
-            <div class="faq__list">
-                <div class="faq__item">
-                    <div class="faq__question">
-                        <h3>Какой срок изготовления изделий?</h3>
-                        <span class="faq__toggle">+</span>
-                    </div>
-                    <div class="faq__answer">
-                        <p>Стандартный срок изготовления составляет до 10 рабочих дней с момента замера. Точные сроки
-                            зависят от сложности проекта и согласовываются индивидуально.</p>
-                    </div>
-                </div>
-                <div class="faq__item">
-                    <div class="faq__question">
-                        <h3>Как ухаживать за акриловым камнем?</h3>
-                        <span class="faq__toggle">+</span>
-                    </div>
-                    <div class="faq__answer">
-                        <p>Достаточно протирать поверхность влажной тканью и мягким моющим средством. Избегайте
-                            абразивных материалов и агрессивных химических веществ.</p>
-                    </div>
-                </div>
-                <div class="faq__item">
-                    <div class="faq__question">
-                        <h3>Какая гарантия предоставляется?</h3>
-                        <span class="faq__toggle">+</span>
-                    </div>
-                    <div class="faq__answer">
-                        <p>Мы предоставляем гарантию 10 лет на все изделия при соблюдении правил эксплуатации.</p>
-                    </div>
-                </div>
-                <div class="faq__item">
-                    <div class="faq__question">
-                        <h3>Можно ли восстановить поврежденную поверхность?</h3>
-                        <span class="faq__toggle">+</span>
-                    </div>
-                    <div class="faq__answer">
-                        <p>Да, акриловый камень легко поддается реставрации. Повреждения, такие как царапины или сколы,
-                            можно устранить с помощью шлифовки или ремонта, что вернет изделию первоначальный вид.</p>
-                    </div>
-                </div>
-                <div class="faq__item">
-                    <div class="faq__question">
-                        <h3>Какие изделия можно изготовить из акрилового камня?</h3>
-                        <span class="faq__toggle">+</span>
-                    </div>
-                    <div class="faq__answer">
-                        <p>Из акрилового камня можно изготовить столешницы, подоконники, раковины, барные стойки,
-                            стеновые панели и другие изделия. Материал позволяет создавать уникальные формы и бесшовные
-                            соединения.</p>
-                    </div>
-                </div>
+      <div class="container">
+        <h2>Часто задаваемые вопросы</h2>
+        <div class="faq__list">
+          <div class="faq__item">
+            <div class="faq__question">
+              <h3>Какой срок изготовления изделий?</h3>
+              <span class="faq__toggle">+</span>
             </div>
+            <div class="faq__answer">
+              <p>
+                Стандартный срок изготовления составляет до 10 рабочих дней с
+                момента замера. Точные сроки зависят от сложности проекта и
+                согласовываются индивидуально.
+              </p>
+            </div>
+          </div>
+          <div class="faq__item">
+            <div class="faq__question">
+              <h3>Как ухаживать за акриловым камнем?</h3>
+              <span class="faq__toggle">+</span>
+            </div>
+            <div class="faq__answer">
+              <p>
+                Достаточно протирать поверхность влажной тканью и мягким моющим
+                средством. Избегайте абразивных материалов и агрессивных
+                химических веществ.
+              </p>
+            </div>
+          </div>
+          <div class="faq__item">
+            <div class="faq__question">
+              <h3>Какая гарантия предоставляется?</h3>
+              <span class="faq__toggle">+</span>
+            </div>
+            <div class="faq__answer">
+              <p>
+                Мы предоставляем гарантию 10 лет на все изделия при соблюдении
+                правил эксплуатации.
+              </p>
+            </div>
+          </div>
+          <div class="faq__item">
+            <div class="faq__question">
+              <h3>Можно ли восстановить поврежденную поверхность?</h3>
+              <span class="faq__toggle">+</span>
+            </div>
+            <div class="faq__answer">
+              <p>
+                Да, акриловый камень легко поддается реставрации. Повреждения,
+                такие как царапины или сколы, можно устранить с помощью шлифовки
+                или ремонта, что вернет изделию первоначальный вид.
+              </p>
+            </div>
+          </div>
+          <div class="faq__item">
+            <div class="faq__question">
+              <h3>Какие изделия можно изготовить из акрилового камня?</h3>
+              <span class="faq__toggle">+</span>
+            </div>
+            <div class="faq__answer">
+              <p>
+                Из акрилового камня можно изготовить столешницы, подоконники,
+                раковины, барные стойки, стеновые панели и другие изделия.
+                Материал позволяет создавать уникальные формы и бесшовные
+                соединения.
+              </p>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Contact form section -->
     <section id="contact" class="contact">
-        <div class="container">
-            <h2>Узнать стоимость</h2>
-            <form id="contactForm" class="contact-form">
-                <div class="form-group">
-                    <input type="text" name="name" placeholder="Ваше имя" required>
-                </div>
-                <div class="form-group">
-                    <input type="tel" name="phone" placeholder="Ваш телефон" pattern="[\+]?[7-8][0-9]{10}"
-                        title="Пожалуйста, введите номер в формате +7XXXXXXXXXX или 8XXXXXXXXXX" required>
-                </div>
-                <button type="submit" class="btn btn-primary" style="font-weight: 600;">Отправить</button>
-                <div id="formMessage" style="display: none; margin-top: 1rem; text-align: center;"></div>
-            </form>
-        </div>
+      <div class="container">
+        <h2>Узнать стоимость</h2>
+        <form id="contactForm" class="contact-form">
+          <div class="form-group">
+            <input type="text" name="name" placeholder="Ваше имя" required />
+          </div>
+          <div class="form-group">
+            <input
+              type="tel"
+              name="phone"
+              placeholder="Ваш телефон"
+              pattern="[\+]?[7-8][0-9]{10}"
+              title="Пожалуйста, введите номер в формате +7XXXXXXXXXX или 8XXXXXXXXXX"
+              required
+            />
+          </div>
+          <button
+            type="submit"
+            class="btn btn-primary"
+            style="font-weight: 600"
+          >
+            Отправить
+          </button>
+          <div
+            id="formMessage"
+            style="display: none; margin-top: 1rem; text-align: center"
+          ></div>
+        </form>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <p>Московская область, г. Чехов, ПСК "Сергеево"</p>
-            <p>Телефон: <a href="tel:+79991654406">+7 999 165-44-06</a></p>
-        </div>
+      <div class="container">
+        <p>Московская область, г. Чехов, ПСК "Сергеево"</p>
+        <p>Телефон: <a href="tel:+79991654406">+7 999 165-44-06</a></p>
+      </div>
     </footer>
-</body>
-
+  </body>
 </html>
